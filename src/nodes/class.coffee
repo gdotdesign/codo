@@ -73,8 +73,8 @@ module.exports = class Class extends Node
             doc = previousExp if previousExp?.constructor.name is 'Comment'
             doc or= swallowedDoc
 
-            type = exp.variable?.base?.value
-            name = exp.args?[0]?.base?.properties?[0]?.variable?.base?.value
+            type = exp.variable.properties?[0]?.name?.value
+            name = exp.args?[0]?.base?.value
 
             # This is a workaround for a strange CoffeeScript bug:
             # Given the following snippet:
